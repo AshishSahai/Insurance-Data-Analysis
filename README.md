@@ -61,3 +61,18 @@ Columns in the dataset:
     region: Residential area in the US
 
     charges: Individual medical costs billed by health insurance
+
+## Key Insights / Findings
+
+- *Smokers tend to be charged significantly more for insurance*, especially in higher BMI ranges.
+- *Children vs Age*: People aged between X–Y tend to have more dependents.
+- *Gender distribution is fairly even*, with minimal variance in average charges.
+
+
+## Visualizations
+
+### Dependents by Age Group
+![Dependents Bar Chart](dependents of insurer by age.png)
+
+### Insurance Charges vs Smoker/BMI Rate
+![Scatter Plot](Insurance charges vs SmokerByBMI rate.png)
