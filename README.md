@@ -71,5 +71,5 @@ Columns in the dataset:
 
 ## Visualizations
 
-![Dependents Chart](images/dependents_by_age.png)
+![Dependents Chart](images/Dependents_by_age.png)
 ![Scatter Plot](images/charges_vs_smoker_bmi.png)
