@@ -71,8 +71,5 @@ Columns in the dataset:
 
 ## Visualizations
 
-### Dependents by Age Group
-![Dependents Bar Chart](dependents of insurer by age.png)
-
-### Insurance Charges vs Smoker/BMI Rate
-![Scatter Plot](Insurance charges vs SmokerByBMI rate.png)
+![Dependents Chart](images/dependents_by_age.png)
+![Scatter Plot](images/charges_vs_smoker_bmi.png)

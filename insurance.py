@@ -54,20 +54,20 @@ def plot_dependents_of_insurer(data):
     plt.ylabel("children")
     plt.xticks(rotation=0)
     plt.tight_layout()
-    plt.savefig("Dependents of Insurer by age.png")
+    plt.savefig("images/Dependents_by_age.png")
     plt.show()
 
 
 def plot_smoker_bmi_charges(data):
     plt.figure(figsize=(10,6))
-    plt.scatter(data["rate_of_smoker_by_bmi"],data["charges"], alpha=0.6, c="red")
+
     plt.title("Insurance charges vs Smoker/BMI rate")
     plt.xlabel("Smoker(1)/BMI rate(Inverse BMI for smokers only)")
     plt.ylabel("Charges")
     sns.scatterplot(x="rate_of_smoker_by_bmi", y= "charges", hue="smoker", style="sex", data=data, alpha= 0.7)
     plt.grid(True)
     plt.tight_layout()
-    plt.savefig("Insurance charges vs SmokerByBMI rate.png")
+    plt.savefig("images/charges_vs_smoker_bmi.png")
     plt.show()
 
 
