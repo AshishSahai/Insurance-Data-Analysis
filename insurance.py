@@ -36,7 +36,7 @@ def explore_data(data):
 
 #Prints the mean of children in age gaps
     print("\nAge summary by children:\n ", data.groupby("age_group",observed=True)["children"].sum().round(2))
-    dependents_by_age = data.groupby("age_group",observed=True)["children"].sum().round(2)
+    dependents_by_age = data.groupby("age_group",observed=True)["children"].mean().round(2)
 
 
     data["rate_of_smoker_by_bmi"] = data["smoker_binary"]/data["bmi"]
