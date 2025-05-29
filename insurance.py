@@ -1,6 +1,10 @@
 import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
+from sklearn.metrics import mean_absolute_error
+from sklearn.model_selection import train_test_split
+from sklearn.tree import DecisionTreeRegressor
+
 
 #Read data
 def read_data(data):
@@ -24,6 +28,7 @@ def explore_data(data):
 
     print("\n age by region: \n", data.groupby("region",observed=True)["charges"].mean().round(2))
     print("\nGender Statistics: \n",data["sex"].describe())
+    data["sex_binary"] = data["sex"].map({"male":1, "female":0})
 
 #Smoker count
     print("\n Smoker count: \n", data["smoker"].value_counts())
@@ -45,6 +50,28 @@ def explore_data(data):
     print("\n Average rate of smoker/bmi by charges: \n", data.groupby("charges", observed=True)["rate_of_smoker_by_bmi"].mean().round(4))
 
     return dependents_by_age, charges_vs_smoker_by_bmi
+
+def ml_model(data):
+    y = data.charges
+    features = ["age", "bmi", "sex_binary", "smoker_binary"]
+    X = data[features]
+    train_X, val_X, train_y, val_y = train_test_split(X, y, random_state=42)
+    mae_dict = {}
+    for max_leaf_nodes in [5, 25, 50, 100, 250, 500, 5000]:
+
+        model = DecisionTreeRegressor(max_leaf_nodes= max_leaf_nodes, random_state=42)
+        model.fit(train_X, train_y)
+
+        val_predictions = model.predict(val_X)
+        #print(val_predictions[:5])
+        #print(val_y[:5])
+
+        mae = mean_absolute_error(val_y, val_predictions)
+        print("Max leaf nodes: %d  \t\t Mean Absolute Error:  %d" %(max_leaf_nodes, mae))
+        mae_dict[max_leaf_nodes] = mae
+        best_tree_size = min(mae_dict, key = mae_dict.get)
+    print("Best Tree Size: \n",best_tree_size)
+
 
 def plot_dependents_of_insurer(data):
     plt.figure(figsize=(10,6))
@@ -75,10 +102,9 @@ def main():
 
     insurance_data = read_data("insurance.csv")
     dependents_by_age, charges_vs_smoker_by_bmi = explore_data(insurance_data)
+    ml_model(insurance_data)
     plot_dependents_of_insurer(dependents_by_age)
     plot_smoker_bmi_charges(insurance_data)
-
-
 
 
 if __name__ == "__main__":

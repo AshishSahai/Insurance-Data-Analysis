@@ -12,11 +12,27 @@ This project performs Exploratory Data Analysis (EDA) on an insurance dataset. I
   - Age groups
   - Smoking status
   - Gender
+- 🌲 Machine Learning:
+  - Uses DecisionTreeRegressor to predict insurance charges
+  - Tests various max_leaf_nodes to evaluate model accuracy (Mean Absolute Error)
+  - Automatically finds the best tree size based on MAE
 - Visualizations:
   - Bar chart of dependents by age group
   - Scatter plot of insurance charges vs smoker/BMI ratio
 - Calculates a custom feature: `rate_of_smoker_by_bmi`
 - Saves visualizations as `.png` files
+
+---
+
+📌 Key Functions
+
+| Function Name                  | Description                                           |
+| ------------------------------ | ----------------------------------------------------- |
+| `read_data()`                  | Reads the CSV file into a DataFrame                   |
+| `explore_data()`               | Performs exploratory analysis & feature engineering   |
+| `ml_model()`                   | Trains multiple Decision Trees and finds the best one |
+| `plot_dependents_of_insurer()` | Visualizes number of children by age group            |
+| `plot_smoker_bmi_charges()`    | Plots insurance charges vs smoker/BMI ratio           |
 
 ---
 
