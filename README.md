@@ -1,6 +1,6 @@
 # 🩺 Insurance EDA & Visualization
 
-This project performs Exploratory Data Analysis (EDA) on an insurance dataset. It includes insights on charges, age groups, smoking habits, BMI, dependents, and gender-based statistics. The goal is to extract meaningful patterns that may influence insurance charges and health-related risk factors.
+This project performs comprehensive Exploratory Data Analysis (EDA) on an insurance dataset to uncover meaningful patterns related to charges, age groups, smoking habits, BMI, dependents, and gender-based statistics. In addition to EDA, it implements a Machine Learning model using Decision Tree Regressor to predict insurance charges based on key features such as age, BMI, smoking status, and gender. The model evaluates multiple tree sizes using Mean Absolute Error (MAE) to identify the most effective configuration for accurate predictions. This combination of statistical insights and predictive modeling supports data-driven decision-making in insurance risk assessment.
 
 ---
 
